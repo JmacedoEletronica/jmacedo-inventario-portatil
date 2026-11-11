@@ -1,0 +1,41 @@
+GRUPO J. MACEDO - INVENTARIO PORTATIL
+==================================
+
+COMO USAR
+1. Extraia o ZIP e copie a pasta completa para o pendrive.
+2. No computador a consultar, abra ABRIR-INVENTARIO.cmd com dois cliques.
+3. Aguarde a coleta. A janela permanece aberta ate pressionar ENTER.
+4. Os arquivos TXT e CSV ficam em Relatorios, dentro desta mesma pasta.
+   Cada coleta cria arquivos novos, identificados por computador e horario.
+   O CSV usa ponto e virgula e pode ser aberto no Excel.
+
+Mantenha ABRIR-INVENTARIO.cmd e Inventario-Jmacedo.ps1 juntos.
+Execute depois de extrair, e nao de dentro do ZIP.
+
+DADOS
+Nome, fabricante, modelo, numero de serie informado pelo BIOS,
+sistema operacional, versao, arquitetura, RAM, interface de rede,
+IPv4, MAC e gateway. Sem internet tambem coleta os dados disponiveis.
+
+REDE
+Prioriza a rota padrao IPv4 com menor soma das metricas de rota e
+interface. IP e MAC correspondem a mesma interface selecionada.
+VPNs podem ser selecionadas se tiverem essa prioridade no Windows.
+Sem rota padrao, tenta uma interface local e indica essa limitacao.
+Se os cmdlets de rede falharem, tenta uma consulta alternativa CIM.
+Nao verifica navegacao nem envia consultas para servidores externos.
+
+REQUISITOS
+Windows 10/11 e Windows PowerShell 5.1. Nao exige instalar modulos.
+Normalmente funciona sem abrir como administrador; politicas da empresa
+podem bloquear scripts ou consultas. Nesse caso, consulte o TI.
+O iniciador solicita ExecutionPolicy Bypass apenas no processo aberto;
+nao altera permanentemente a politica e nao supera politicas de grupo.
+Pendrive com bloqueio de escrita: os dados aparecem, mas nao sao salvos.
+
+OPCOES PARA USO TECNICO
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Inventario-Jmacedo.ps1 -NoPause
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Inventario-Jmacedo.ps1 -NoSave
+
+Nao altera configuracoes do equipamento nem envia os dados ao ERP.
+A arte de texto e uma assinatura tipografica J. Macedo para o terminal.

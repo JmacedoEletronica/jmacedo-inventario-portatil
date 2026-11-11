@@ -1,0 +1,5 @@
+Relatorios/
+*.csv
+*.zip
+.env
+.env.*
